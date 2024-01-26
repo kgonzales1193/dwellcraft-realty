@@ -94,17 +94,7 @@
                                         <p>manage your personal information</p>
                                     </div>
                                     <hr class="hr pb-2" />
-                                    {{-- Alert start --}}
-                                    @if (session('message'))
-                                        <x-alert :message="session('message')" :type="'success'" />
-                                        <br />
-                                    @endif
-                                    @if (auth()->user()->getPendingEmail())
-                                        <x-alert :message="__(
-                                            'Please check your email to verify your new email address. You cant use your new email to login until you verify it.',
-                                        )" :type="'danger'" />
-                                        <br />
-                                    @endif
+
                                     <div>
                                         <form action="{{ route('profile.update', auth()->user()) }}" method="POST"
                                             enctype="multipart/form-data" class="default-form">

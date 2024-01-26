@@ -19,7 +19,7 @@
                 </ul>
                 @if (auth()->check())
                     <div class="sign-box px-3">
-                        <a href="{{ route('profile') }}"><i class="fas fa-user"></i>My Account</a>
+                        <a href="{{ route('profile.index') }}"><i class="fas fa-user"></i>My Account</a>
                     </div>
                     <div class="sign-box">
                         <a href="{{ route('logout') }}"

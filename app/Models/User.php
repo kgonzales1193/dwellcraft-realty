@@ -28,13 +28,16 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'email_verified_at',
         'phone',
-        'post_code',
+        'address_line',
         'city',
+        'state_or_province',
         'country',
+        'postal_code',
         'photo',
     ];
 
@@ -85,6 +88,4 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     {
         return $query->where('id', '!=', 1);
     }
-
-
 }

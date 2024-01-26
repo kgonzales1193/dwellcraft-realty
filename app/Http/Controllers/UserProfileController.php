@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ProfileController extends Controller
+class UserProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -87,7 +87,7 @@ class ProfileController extends Controller
             $user->addMediaFromRequest('photo')->toMediaCollection('profile-image');
         }
 
-        return to_route('profile.index')->with('message', 'Profile updated successfully');
+        return redirect()->route('profile.index')->with('message', 'Profile updated successfully');
     }
 
     /**

@@ -85,5 +85,5 @@ Route::prefix('agent')->middleware(['auth', 'verified', 'role:agent'])->group(fu
 Route::prefix('user')->middleware(['auth', 'verified'])->group(function () {
 
     // Profiles
-    Route::get('profile', [UserProfileController::class, 'GeneralUserProfile'])->name('profile');
+    Route::resource('profile', UserProfileController::class)->only(['index', 'update'])->parameter('profile', 'user');
 });
