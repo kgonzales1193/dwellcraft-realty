@@ -27,29 +27,6 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-// Route::group(['middleware' => ['auth', 'verified']], function () {
-//     // Dashboards
-//     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard.index');
-//     // Locale
-//     Route::get('setlocale/{locale}', SetLocaleController::class)->name('setlocale');
-
-//     // User
-//     Route::resource('users', UserController::class);
-//     // Permission
-//     Route::resource('permissions', PermissionController::class)->except(['show']);
-//     // Roles
-//     Route::resource('roles', RoleController::class);
-//     // Profiles
-//     Route::resource('profiles', ProfileController::class)->only(['index', 'update'])->parameter('profiles', 'user');
-//     // Env
-//     Route::singleton('general-settings', GeneralSettingController::class);
-//     Route::post('general-settings-logo', [GeneralSettingController::class, 'logoUpdate'])->name('general-settings.logo');
-
-//     // Database Backup
-//     Route::resource('database-backups', DatabaseBackupController::class);
-//     Route::get('database-backups-download/{fileName}', [DatabaseBackupController::class, 'databaseBackupDownload'])->name('database-backups.download');
-// });
-
 
 Route::prefix('admin')->middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard');
